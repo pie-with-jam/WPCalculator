@@ -1,155 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:columnCount="4"
+    android:rowCount="6"
+    android:alignmentMode="alignMargins"
+    android:rowOrderPreserved="false"
     android:padding="16dp"
     android:background="@color/black">
 
+    <!-- TextView на первом ряду -->
     <TextView
         android:id="@+id/inputText"
-        android:layout_width="match_parent"
+        android:layout_width="379dp"
         android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_columnSpan="4"
         android:gravity="end"
         android:padding="8dp"
         android:textColor="@color/white"
         android:textSize="32sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4">
+    <!-- Кнопки на остальных рядах -->
+    <com.google.android.material.button.MaterialButton style="@style/OperationButton"
+        android:text="C"
+        android:layout_column="0"
+        android:layout_row="1" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/OperationButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="C" />
+    <com.google.android.material.button.MaterialButton style="@style/OperationButton"
+        android:text="MC"
+        android:layout_column="1"
+        android:layout_row="1" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/OperationButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MC" />
+    <com.google.android.material.button.MaterialButton style="@style/OperationButton"
+        android:text="MR"
+        android:layout_column="2"
+        android:layout_row="1" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/OperationButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MR" />
+    <com.google.android.material.button.MaterialButton
+        style="@style/OperationButton"
+        android:layout_row="1"
+        android:layout_column="3"
+        android:text="M+" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/OperationButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="M+" />
-    </LinearLayout>
+    <com.google.android.material.button.MaterialButton style="@style/NumberButton"
+        android:text="7"
+        android:layout_column="0"
+        android:layout_row="2" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:layout_marginTop="8dp">
+    <com.google.android.material.button.MaterialButton style="@style/NumberButton"
+        android:text="8"
+        android:layout_column="1"
+        android:layout_row="2" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="7" />
+    <com.google.android.material.button.MaterialButton style="@style/NumberButton"
+        android:text="9"
+        android:layout_column="2"
+        android:layout_row="2" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="8" />
+    <com.google.android.material.button.MaterialButton style="@style/OperationButton"
+        android:text="×"
+        android:layout_column="3"
+        android:layout_row="2" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="9" />
+    <com.google.android.material.button.MaterialButton style="@style/NumberButton"
+        android:text="4"
+        android:layout_column="0"
+        android:layout_row="3" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/OperationButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="×" />
-    </LinearLayout>
+    <com.google.android.material.button.MaterialButton style="@style/NumberButton"
+        android:text="5"
+        android:layout_column="1"
+        android:layout_row="3" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:layout_marginTop="8dp">
+    <com.google.android.material.button.MaterialButton style="@style/NumberButton"
+        android:text="6"
+        android:layout_column="2"
+        android:layout_row="3" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="4" />
+    <com.google.android.material.button.MaterialButton style="@style/OperationButton"
+        android:text="-"
+        android:layout_column="3"
+        android:layout_row="3" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="5" />
+    <com.google.android.material.button.MaterialButton style="@style/NumberButton"
+        android:text="0"
+        android:layout_column="0"
+        android:layout_row="4" />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="6" />
+    <com.google.android.material.button.MaterialButton
+        style="@style/NumberButton"
+        android:layout_row="4"
+        android:layout_column="2"
+        android:text="," />
 
-        <com.google.android.material.button.MaterialButton
-            style="@style/OperationButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="-" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:layout_marginTop="8dp">
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="0" />
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/NumberButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="," />
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/EqualsButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="=" />
-    </LinearLayout>
-
-</LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        style="@style/EqualsButton"
+        android:layout_row="4"
+        android:layout_column="3"
+        android:text="=" />
+</GridLayout>
