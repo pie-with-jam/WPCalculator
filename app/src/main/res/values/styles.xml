@@ -2,12 +2,13 @@
     <style name="BaseButtonStyle" parent="Widget.Material3.Button">
         <item name="cornerRadius">0dp</item>
         <item name="android:textColor">#fcfcfc</item>
-        <item name="android:textSize">26sp</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">84dp</item>
-        <item name="android:layout_columnWeight">1</item>
-        <item name="android:layout_rowWeight">1</item>
-        <item name="android:layout_margin">4dp</item>
+        <item name="autoSizeTextType">uniform</item> <!-- автоматический размер шрифта -->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="layout_rowWeight">1</item>
+        <item name="layout_columnWeight">1</item>
     </style>
 
     <!-- Стиль для кнопок операций -->
