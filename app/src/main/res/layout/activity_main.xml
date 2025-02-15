@@ -1,169 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:alignmentMode="alignMargins"
     android:background="@color/black"
-    android:columnCount="4"
-    android:padding="16dp"
-    android:rowCount="7"
-    android:rowOrderPreserved="false">
+    android:gravity="center_horizontal|bottom"
+    android:padding="6dp"
+    android:orientation="vertical">
 
-    <!-- TextView на первом ряду
     <TextView
-        android:id="@+id/inputText"
-        android:layout_width="379dp"
+        android:id="@+id/display"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_columnSpan="4"
         android:gravity="end"
-        android:padding="8dp"
-        android:textColor="@color/white"
-        android:textSize="32sp" /> -->
+        android:textSize="48sp"
+        android:textColor="#FFFFFF"
+        android:text="2,979"
+        android:padding="16dp" />
 
-    <!-- Кнопки на остальных рядах -->
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="1"
-        android:layout_column="0"
-        android:text="C" />
+    <include layout="@layout/keyboard_vertical"/>
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="1"
-        android:layout_column="1"
-        android:text="MC" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="1"
-        android:layout_column="2"
-        android:text="MR" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="1"
-        android:layout_column="3"
-        android:text="M+" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="2"
-        android:layout_column="0"
-        android:text="⌫" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="2"
-        android:layout_column="1"
-        android:text="±" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="2"
-        android:layout_column="2"
-        android:text="%" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="2"
-        android:layout_column="3"
-        android:text="÷" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="3"
-        android:layout_column="0"
-        android:text="7" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="3"
-        android:layout_column="1"
-        android:text="8" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="3"
-        android:layout_column="2"
-        android:text="9" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="3"
-        android:layout_column="3"
-        android:text="×" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="4"
-        android:layout_column="0"
-        android:text="4" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="4"
-        android:layout_column="1"
-        android:text="5" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="4"
-        android:layout_column="2"
-        android:text="6" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="4"
-        android:layout_column="3"
-        android:text="-" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="5"
-        android:layout_column="0"
-        android:text="1" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="5"
-        android:layout_column="1"
-        android:text="2" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="5"
-        android:layout_column="2"
-        android:text="3" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/OperationButton"
-        android:layout_row="5"
-        android:layout_column="3"
-        android:text="+" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="6"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:text="0" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/NumberButton"
-        android:layout_row="6"
-        android:layout_column="2"
-        android:layout_columnSpan="2"
-        android:text="." />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/EqualsButton"
-        android:layout_row="6"
-        android:layout_column="3"
-        android:text="=" />
-
-
-
-
-</GridLayout>
+</LinearLayout>
