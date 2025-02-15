@@ -9,12 +9,18 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/display"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:gravity="end"
         android:padding="16dp"
         android:text="0"
         android:layout_marginTop="128dp"
-        android:textSize="72sp"/>
+        android:textSize="72sp"
+        android:maxLines="1"
+        android:ellipsize="none"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="72sp"
+        android:autoSizeStepGranularity="1sp"/>
 
     <include layout="@layout/keyboard_vertical"/>
 
