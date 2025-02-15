@@ -1,0 +1,27 @@
+<resources>
+    <style name="BaseButtonStyle" parent="Widget.Material3.Button">
+        <item name="cornerRadius">0dp</item>
+        <item name="android:textColor">#fcfcfc</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">84dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <!-- Стиль для кнопок операций -->
+    <style name="OperationButton" parent="BaseButtonStyle">
+        <item name="android:backgroundTint">#323232</item>
+    </style>
+
+    <!-- Стиль для числовых кнопок -->
+    <style name="NumberButton" parent="BaseButtonStyle">
+        <item name="android:backgroundTint">#202020</item>
+    </style>
+
+    <!-- Стиль для кнопки равенства -->
+    <style name="EqualsButton" parent="BaseButtonStyle">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+    </style>
+</resources>

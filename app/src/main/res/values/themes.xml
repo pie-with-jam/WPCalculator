@@ -1,6 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Theme.Calculator" parent="Theme.Material3.DayNight">
+    <style name="Theme.Calculator" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,30 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-    </style>
-
-    <style name="BaseButtonStyle" parent="Widget.Material3.Button">
-        <item name="cornerRadius">0dp</item>
-        <item name="android:textColor">#fcfcfc</item>
         <item name="fontFamily">@font/manrope</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">70dp</item>
-        <item name="android:layout_marginEnd">6dp</item>
-    </style>
-
-    <!-- Стиль для кнопок операций -->
-    <style name="OperationButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">#323232</item>
-    </style>
-
-    <!-- Стиль для числовых кнопок -->
-    <style name="NumberButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">#202020</item>
-    </style>
-
-    <!-- Стиль для кнопки равенства -->
-    <style name="EqualsButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">#a5c502</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:colorBackground">@color/white</item>
     </style>
 </resources>

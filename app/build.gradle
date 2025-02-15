@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId "ru.alertkaput.calculator"
-        minSdk 27
-        targetSdk 34
+        minSdk 21
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     android:gravity="center_horizontal|bottom"
-    android:padding="6dp"
     android:orientation="vertical">
 
     <TextView
@@ -13,10 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
-        android:textSize="48sp"
-        android:textColor="#FFFFFF"
-        android:text="2,979"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:text="0"
+        android:textSize="72sp"/>
 
     <include layout="@layout/keyboard_vertical"/>
 
