@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="Theme.Calculator" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -34,16 +34,17 @@
 
     <!-- Стиль для кнопок операций -->
     <style name="OperationButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">#bebebe</item>
+        <item name="android:backgroundTint">@drawable/button_operation_light_selector</item>
     </style>
 
     <!-- Стиль для числовых кнопок -->
     <style name="NumberButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">#dddddd</item>
+        <item name="android:backgroundTint">@drawable/button_number_light_selector</item>
     </style>
 
     <!-- Стиль для кнопки равенства -->
     <style name="EqualsButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:backgroundTint">@drawable/button_equals_light_selector</item>
+        <item name="android:textColor">@color/equals_textcolor_light_selector</item>
     </style>
 </resources>

@@ -33,16 +33,17 @@
 
     <!-- Стиль для кнопок операций -->
     <style name="OperationButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">#323232</item>
+        <item name="android:backgroundTint">@drawable/button_operation_dark_selector</item>
     </style>
 
     <!-- Стиль для числовых кнопок -->
     <style name="NumberButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">#202020</item>
+        <item name="android:backgroundTint">@drawable/button_number_dark_selector</item>
     </style>
 
     <!-- Стиль для кнопки равенства -->
     <style name="EqualsButton" parent="BaseButtonStyle">
-        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:backgroundTint">@drawable/button_equals_dark_selector</item>
+        <item name="android:textColor">@color/equals_textcolor_dark_selector</item>
     </style>
 </resources>

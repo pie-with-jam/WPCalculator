@@ -170,8 +170,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_equals"
         style="@style/EqualsButton"
-        app:layout_row="6"
+        android:text="="
         app:layout_column="3"
-        android:text="=" />
+        app:layout_row="6" />
 
 </androidx.gridlayout.widget.GridLayout>
