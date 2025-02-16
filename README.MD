@@ -17,7 +17,7 @@ The app is lightweight and efficient, offering essential mathematical operations
 
 ### 📸 Screenshots:
 
-![Image 1](screenshots/light.jpg) ![Image 2](screenshots/night.jpg)
+![Image 1](screenshots/light.jpg)
 
 ### 📥 Download & Installation
 Since the app is still in development, some features may not be fully implemented yet.
