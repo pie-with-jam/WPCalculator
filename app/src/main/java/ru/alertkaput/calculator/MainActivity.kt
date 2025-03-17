@@ -10,6 +10,7 @@ import java.math.RoundingMode
 class MainActivity : AppCompatActivity() {
 
     private lateinit var display: MaterialTextView // Поле для отображения ввода и результата
+    private lateinit var operationDisplay: MaterialTextView // Поле для отображения истории операций
     private var currentNumber = StringBuilder() // Текущее введенное число
     private var memory: BigDecimal = BigDecimal.ZERO // Память калькулятора
     private var firstOperand: BigDecimal? = null // Первый операнд операции
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         display = findViewById(R.id.display)
+        operationDisplay = findViewById(R.id.operation_display) // Инициализация нового TextView
 
         // Сопоставляем кнопки с их значениями
         val buttons = mapOf(
@@ -63,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         firstOperand = null
         currentOperator = null
         updateDisplay()
+        operationDisplay.visibility = android.view.View.GONE // Скрываем верхний TextView
     }
 
     /** Удаляет последний введенный символ. */
@@ -97,6 +100,8 @@ class MainActivity : AppCompatActivity() {
             firstOperand = BigDecimal(currentNumber.toString())
             currentOperator = operator
             currentNumber.clear()
+            updateOperationDisplay()
+            operationDisplay.visibility = android.view.View.VISIBLE // Показываем верхний TextView
         }
     }
 
@@ -115,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             firstOperand = null
             currentOperator = null
             updateDisplay()
+            operationDisplay.visibility = android.view.View.GONE // Скрываем верхний TextView
         }
     }
 
@@ -134,7 +140,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     /**
      * Форматирует число, добавляя разделители тысяч (запятые).
      *
@@ -152,10 +157,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     /** Обновляет отображение чисел на экране. */
     private fun updateDisplay() {
         display.text = if (currentNumber.isEmpty()) "0" else formatNumber(currentNumber.toString())
+    }
+
+    /** Обновляет отображение истории операций. */
+    private fun updateOperationDisplay() {
+        if (firstOperand != null && currentOperator != null) {
+            operationDisplay.text = "${firstOperand!!.stripTrailingZeros().toPlainString()} $currentOperator"
+        }
     }
 }
