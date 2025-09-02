@@ -9,22 +9,22 @@ import java.math.RoundingMode
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var display: MaterialTextView // Поле для отображения ввода и результата
-    private lateinit var operationDisplay: MaterialTextView // Поле для отображения истории операций
-    private var currentNumber = StringBuilder() // Текущее введенное число
-    private var memory: BigDecimal = BigDecimal.ZERO // Память калькулятора
-    private var firstOperand: BigDecimal? = null // Первый операнд операции
-    private var currentOperator: String? = null // Текущий оператор (+, -, ×, ÷)
-    private val maxDigits = 16 // Ограничение на количество знаков
+    private lateinit var display: MaterialTextView // Display field for input and result
+    private lateinit var operationDisplay: MaterialTextView // Display field for operation history
+    private var currentNumber = StringBuilder() // Currently entered number
+    private var memory: BigDecimal = BigDecimal.ZERO // Calculator memory
+    private var firstOperand: BigDecimal? = null // First operation operand
+    private var currentOperator: String? = null // Current operator (+, -, ×, ÷)
+    private val maxDigits = 16 // Maximum digit limit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         display = findViewById(R.id.display)
-        operationDisplay = findViewById(R.id.operation_display) // Инициализация нового TextView
+        operationDisplay = findViewById(R.id.operation_display) // Initialize new TextView
 
-        // Сопоставляем кнопки с их значениями
+        // Map buttons to their values
         val buttons = mapOf(
             R.id.button_0 to "0", R.id.button_1 to "1", R.id.button_2 to "2", R.id.button_3 to "3",
             R.id.button_4 to "4", R.id.button_5 to "5", R.id.button_6 to "6", R.id.button_7 to "7",
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.button_divide).setOnClickListener { onOperatorClick("÷") }
     }
 
-    /** Обрабатывает нажатие на цифровые кнопки и точку. */
+    /** Handles digit and decimal point button clicks */
     private fun onNumberButtonClick(value: String) {
         if (value == "." && currentNumber.contains(".")) return
         if (value == "." && currentNumber.isEmpty()) currentNumber.append("0")
@@ -59,16 +59,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /** Очищает ввод и сбрасывает операнды и оператор. */
+    /** Clears input and resets operands and operator */
     private fun onClear() {
         currentNumber.clear()
         firstOperand = null
         currentOperator = null
         updateDisplay()
-        operationDisplay.visibility = android.view.View.GONE // Скрываем верхний TextView
+        operationDisplay.visibility = android.view.View.GONE // Hide top TextView
     }
 
-    /** Удаляет последний введенный символ. */
+    /** Deletes last entered character */
     private fun onBackspace() {
         if (currentNumber.isNotEmpty()) {
             currentNumber.deleteCharAt(currentNumber.length - 1)
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /** Инвертирует знак текущего числа. */
+    /** Inverts sign of current number */
     private fun onPlusMinus() {
         if (currentNumber.isNotEmpty()) {
             val number = BigDecimal(currentNumber.toString()).negate()
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /** Преобразует текущее число в процент. */
+    /** Converts current number to percentage */
     private fun onPercent() {
         if (currentNumber.isNotEmpty()) {
             val number = BigDecimal(currentNumber.toString()).divide(BigDecimal(100), maxDigits, RoundingMode.HALF_UP)
@@ -94,18 +94,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /** Обрабатывает нажатие операторов (+, -, ×, ÷). */
+    /** Handles operator button clicks (+, -, ×, ÷) */
     private fun onOperatorClick(operator: String) {
         if (currentNumber.isNotEmpty()) {
             firstOperand = BigDecimal(currentNumber.toString())
             currentOperator = operator
             currentNumber.clear()
             updateOperationDisplay()
-            operationDisplay.visibility = android.view.View.VISIBLE // Показываем верхний TextView
+            operationDisplay.visibility = android.view.View.VISIBLE // Show top TextView
         }
     }
 
-    /** Выполняет вычисления при нажатии кнопки '='. */
+    /** Performs calculation when equals button is pressed */
     private fun onEquals() {
         if (currentNumber.isNotEmpty() && firstOperand != null && currentOperator != null) {
             val secondOperand = BigDecimal(currentNumber.toString())
@@ -120,20 +120,20 @@ class MainActivity : AppCompatActivity() {
             firstOperand = null
             currentOperator = null
             updateDisplay()
-            operationDisplay.visibility = android.view.View.GONE // Скрываем верхний TextView
+            operationDisplay.visibility = android.view.View.GONE // Hide top TextView
         }
     }
 
-    /** Очищает память калькулятора. */
+    /** Clears calculator memory */
     private fun onMemoryClear() { memory = BigDecimal.ZERO }
 
-    /** Восстанавливает число из памяти. */
+    /** Recalls number from memory */
     private fun onMemoryRecall() {
         currentNumber.clear().append(memory.stripTrailingZeros().toPlainString())
         updateDisplay()
     }
 
-    /** Добавляет текущее число в память. */
+    /** Adds current number to memory */
     private fun onMemoryAdd() {
         if (currentNumber.isNotEmpty()) {
             memory = memory.add(BigDecimal(currentNumber.toString()))
@@ -141,28 +141,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Форматирует число, добавляя разделители тысяч (запятые).
+     * Formats number by adding thousand separators (commas)
      *
-     * @param number Число в виде строки, которое нужно отформатировать.
-     * @return Отформатированное число с разделителями тысяч.
+     * @param number Number as string to format
+     * @return Formatted number with thousand separators
      */
     private fun formatNumber(number: String): String {
         return try {
-            val parts = number.split(".") // Разделяем целую и дробную части
+            val parts = number.split(".") // Split integer and fractional parts
             val integerPart = parts[0].toBigDecimal().toPlainString().reversed()
-                .chunked(3).joinToString(",").reversed() // Разбиваем по 3 цифры, добавляем запятые
-            if (parts.size > 1) "$integerPart.${parts[1]}" else integerPart // Объединяем с дробной частью, если есть
+                .chunked(3).joinToString(",").reversed() // Split into groups of 3 digits, add commas
+            if (parts.size > 1) "$integerPart.${parts[1]}" else integerPart // Combine with fractional part if exists
         } catch (e: Exception) {
-            number // В случае ошибки возвращаем исходное число
+            number // Return original number in case of error
         }
     }
 
-    /** Обновляет отображение чисел на экране. */
+    /** Updates number display on screen */
     private fun updateDisplay() {
         display.text = if (currentNumber.isEmpty()) "0" else formatNumber(currentNumber.toString())
     }
 
-    /** Обновляет отображение истории операций. */
+    /** Updates operation history display */
     private fun updateOperationDisplay() {
         if (firstOperand != null && currentOperator != null) {
             operationDisplay.text = "${firstOperand!!.stripTrailingZeros().toPlainString()} $currentOperator"
